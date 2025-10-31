@@ -1,6 +1,11 @@
-import express from "express";
-import { registerUser, loginUser, getAllUsers, blockUser } from "../controllers/userController.js";
-import { protect, adminOnly } from "../middleware/authMiddleware.js";
+const express = require("express");
+const {
+  registerUser,
+  loginUser,
+  getAllUsers,
+  blockUser,
+} = require("../Controller/userControllers");
+const { protect, adminOnly } = require("../Middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -12,4 +17,4 @@ router.post("/login", loginUser);
 router.get("/", protect, adminOnly, getAllUsers);
 router.put("/:id/block", protect, adminOnly, blockUser);
 
-export default router;
+module.exports = router;

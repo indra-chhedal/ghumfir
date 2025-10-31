@@ -7,13 +7,19 @@ const connectDB = require("./Database/Config/connection");
 dotenv.config();
 const app = express();
 
+const userRoutes =  require ("./Routes/userRoute");
+
 app.use(express.json());
 app.use(cors());
 
 connectDB();
 
+
+app.use("/api/user", userRoutes);
+
+
 app.get("/", (req, res) => {
-  res.send("Tourism Web App API is running...");
+  res.send("Tourism Web App API is running");
 });
 
 const PORT = process.env.PORT || 5000;
