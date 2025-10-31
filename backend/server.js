@@ -8,6 +8,7 @@ dotenv.config();
 const app = express();
 
 const userRoutes =  require ("./Routes/userRoute");
+const destinationRoutes = require("./Routes/destinationRoute");
 
 app.use(express.json());
 app.use(cors());
@@ -16,6 +17,8 @@ connectDB();
 
 
 app.use("/api/user", userRoutes);
+app.use("/api/destinations", destinationRoutes);
+
 
 
 app.get("/", (req, res) => {
