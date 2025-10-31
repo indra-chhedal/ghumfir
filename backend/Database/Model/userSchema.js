@@ -17,6 +17,7 @@ const userSchema = new mongoose.Schema(
       rating: { type: Number, default: 0 },
       totalReviews: { type: Number, default: 0 },
       available: { type: Boolean, default: true },
+      availableLocation:{type: mongoose.Schema.Types.ObjectId, ref: "Destination"},
     },
   },
   { timestamps: true }
